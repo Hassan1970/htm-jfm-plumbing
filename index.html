@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expert Plumbing Services</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background: #2c3e50;
+            color: #fff;
+            padding: 1rem 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        header p {
+            font-size: 1.1em;
+            margin-top: 0.5rem;
+        }
+
+        nav {
+            background: #34495e;
+            color: #fff;
+            text-align: center;
+            padding: 0.8rem 0;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #ecf0f1;
+        }
+
+        .hero {
+            background: url('https://via.placeholder.com/1500x600/3498db/ffffff?text=Reliable+Plumbing+Solutions') no-repeat center center/cover;
+            color: #fff;
+            text-align: center;
+            padding: 100px 20px;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h2 {
+            font-size: 3.5em;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 1.5em;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #e74c3c;
+            color: #fff;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #c0392b;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            padding: 20px 0;
+        }
+
+        #about, #services, #testimonials, #contact {
+            background: #fff;
+            padding: 40px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            font-size: 2.2em;
+        }
+
+        #services .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            text-align: center;
+        }
+
+        .service-item {
+            background: #ecf0f1;
+            padding: 20px;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .service-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-item img {
+            max-width: 100%;
+            height: 180px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            object-fit: cover;
+        }
+
+        .testimonial-item {
+            background: #fdfdfd;
+            border-left: 5px solid #3498db;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            border-radius: 5px;
+        }
+
+        .testimonial-item p {
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+
+        .testimonial-item .author {
+            font-weight: bold;
+            text-align: right;
+            display: block;
+        }
+
+        #contact form {
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #contact form label {
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        #contact form input[type="text"],
+        #contact form input[type="email"],
+        #contact form textarea {
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        #contact form textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        #contact form button {
+            background: #3498db;
+            color: #fff;
+            border: none;
+            padding: 15px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+            transition: background 0.3s ease;
+        }
+
+        #contact form button:hover {
+            background: #2980b9;
+        }
+
+        .contact-info {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 1.1em;
+        }
+
+        .contact-info p {
+            margin-bottom: 10px;
+        }
+
+        footer {
+            background: #2c3e50;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 30px;
+            box-shadow: 0 -2px 5px rgba(0,0,0,0.2);
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav ul li {
+                margin: 5px 0;
+            }
+
+            .hero h2 {
+                font-size: 2.5em;
+            }
+
+            .hero p {
+                font-size: 1.2em;
+            }
+
+            .container {
+                width: 95%;
+            }
+
+            #about, #services, #testimonials, #contact {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>JFM PLUMBING SERVICES</h1>
+        <p>Reliable Solutions for Your Home and Business</p>
+        <P> You ring and We will come to you</P>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Fast, Friendly & Affordable Plumbing</h2>
+            <p>From leaky faucets to emergency repairs, we've got you covered.</p>
+            <a href="#contact" class="btn">Get a Free Estimate</a>
+        </div>
+    </section>
+
+    <div class="container">
+        <section id="about">
+            <h2>About Us</h2>
+            <p>Welcome to JFM PLUMBING SERVICES! We are a dedicated team of certified plumbers committed to providing top-quality plumbing solutions to our community. With years of experience, we pride ourselves on our professionalism, reliability, and exceptional customer service. We understand that plumbing issues can be stressful, which is why we strive to make every service call as smooth and efficient as possible.</p>
+            <p>Our mission is to ensure your plumbing systems run perfectly, offering peace of mind and comfort. We use the latest tools and techniques to diagnose and fix problems quickly and effectively, always adhering to the highest industry standards.</p>
+        </section>
+
+        <section id="services">
+            <h2>Our Services</h2>
+            <div class="service-grid">
+                <div class="service-item">
+                    <img src="https://via.placeholder.com/400x250/27ae60/ffffff?text=Emergency+Repairs" alt="Emergency Plumbing Repair">
+                    <h3>Emergency Repairs</h3>
+                    <p>24/7 rapid response for bursts, leaks, and clogs. We're here when you need us most!</p>
+                </div>
+                <div class="service-item">
+                    <img src="https://via.placeholder.com/400x250/f39c12/ffffff?text=Drain+Cleaning" alt="Drain Cleaning Service">
+                    <h3>Drain Cleaning</h3>
+                    <p>Expert clearing of blocked drains, sinks, and toilets using advanced techniques.</p>
+                </div>
+                <div class="service-item">
+                    <img src="https://via.placeholder.com/400x250/8e44ad/ffffff?text=Water+Heater+Repair" alt="Water Heater Repair">
+                    <h3>Water Heater Services</h3>
+                    <p>Installation, repair, and maintenance for all types of water heaters, including tankless.</p>
+                </div>
+                <div class="service-item">
+                    <img src="https://via.placeholder.com/400x250/3498db/ffffff?text=Fixture+Installation" alt="Fixture Installation">
+                    <h3>Fixture Installation</h3>
+                    <p>Professional installation of faucets, sinks, toilets, showers, and other plumbing fixtures.</p>
+                </div>
+                <div class="service-item">
+                    <img src="https://via.placeholder.com/400x250/e67e22/ffffff?text=Pipe+Leak+Repair" alt="Pipe Leak Repair">
+                    <h3>Leak Detection & Repair</h3>
+                    <p>Thorough detection and precise repair of hidden pipe leaks to prevent costly damage.</p>
+                </div>
+                <div class="service-item">
+                    <img src="https://via.placeholder.com/400x250/1abc9c/ffffff?text=Sewer+Line+Service" alt="Sewer Line Service">
+                    <h3>Sewer Line Services</h3>
+                    <p>Comprehensive sewer line inspection, repair, and replacement for optimal function.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonials">
+            <h2>What Our Customers Say</h2>
+            <div class="testimonial-item">
+                <p>"Expert Plumbing Services saved us during a major pipe burst! Their team was fast, professional, and fixed everything perfectly. Highly recommend!"</p>
+                <span class="author">- Jane D., Homeowner</span>
+            </div>
+            <div class="testimonial-item">
+                <p>"I've used them for several jobs, from a new water heater to a tricky drain clog. Always impressed with their knowledge and friendly service."</p>
+                <span class="author">- Mark T., Small Business Owner</span>
+            </div>
+            <div class="testimonial-item">
+                <p>"Responsive and fair pricing. They clearly explained the issue and what needed to be done. A truly trustworthy plumbing company."</p>
+                <span class="author">- Sarah P., Property Manager</span>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <p style="text-align: center; margin-bottom: 25px;">Have a plumbing emergency or need a service appointment? Get in touch today!</p>
+            <form id="contactForm">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="phone">Phone (Optional):</label>
+                <input type="text" id="phone" name="phone">
+
+                <label for="service">Reason for Contact:</label>
+                <input type="text" id="service" name="service" placeholder="e.g., Leaky Faucet, Water Heater Issue" required>
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea>
+
+                <button type="submit">Send Message</button>
+            </form>
+            <div class="contact-info">
+                <p><strong>Call Us:</strong> <a href="tel:123-456-7890">083 49 71 922 / 063 334 72 78</a></p>
+                <p><strong>Email:</strong> <a href="mailto:info@expertplumbing.com">wandilephewa17@gmail.com</a></p>
+                <p><strong>Address:</strong> OKFORD VERULAM</p>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 Expert Plumbing Services. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('nav ul li a').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // Simple form submission (for demonstration)
+            const contactForm = document.getElementById('contactForm');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault(); // Prevent actual form submission
+
+                    const name = document.getElementById('name').value;
+                    const email = document.getElementById('email').value;
+                    const service = document.getElementById('service').value;
+                    const message = document.getElementById('message').value;
+
+                    alert(`Thank you, ${name}! Your message regarding "${service}" has been received. We will contact you at ${email} shortly.`);
+
+                    // In a real scenario, you'd send this data to a server using fetch() or XMLHttpRequest
+                    // Example:
+                    // fetch('/submit-form', {
+                    //     method: 'POST',
+                    //     headers: {
+                    //         'Content-Type': 'application/json'
+                    //     },
+                    //     body: JSON.stringify({ name, email, phone, service, message })
+                    // })
+                    // .then(response => response.json())
+                    // .then(data => console.log(data))
+                    // .catch(error => console.error('Error:', error));
+
+                    contactForm.reset(); // Clear the form
+                });
+            }
+        });
+    </script>
+</body>
+</html>
